@@ -78,8 +78,13 @@ The order of execution is shown below. You might only want to run the
 setup scripts once but rerun the sync pair a number of times during
 testing to refine your configuration.
 
+Note that the setup-as-root.sh takes your username (id -un) as it's
+only argument and will make the /opt/sspsmall directories writable by
+that user so the normal sync.sh scripts can update things without
+root.
+
 ```
-sudo ./setup-as-root.sh
+sudo ./setup-as-root.sh userloginid
 ./setup.sh
 
 ./sync.sh
