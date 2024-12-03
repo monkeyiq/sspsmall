@@ -26,5 +26,10 @@ $metadata['urn:x-simplesamlphp:sspsmall-idp'] = [
             'Location' => 'https://localhost/sspsmall/module.php/saml/idp/singleSignOnService',
         ],
     ],    
-    
+    'SingleLogoutService' => [
+        [
+            'Binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
+            'Location' => 'https://sam/sspsmall/module.php/saml/idp/singleLogout',
+        ],
+    ],    
 ];
