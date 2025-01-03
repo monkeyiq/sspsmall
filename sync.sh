@@ -11,6 +11,13 @@ cp metadata/saml20-idp-remote.php  /opt/sspsmall/metadata/
 cp metadata/saml20-idp-hosted.php  /opt/sspsmall/metadata/
 cp metadata/saml20-sp-remote.php   /opt/sspsmall/metadata/
 
+if [ "y${SSPSMALL_EXTRA_SP}" == "y1" ]; then
+    head -n -1 config/authsources.php >| /opt/sspsmall/config/authsources.php
+    cat config/authsources-extra.php  >> /opt/sspsmall/config/authsources.php
+    echo "];"                         >> /opt/sspsmall/config/authsources.php
+    cat metadata/saml20-sp-remote-extra.php >> /opt/sspsmall/metadata/saml20-sp-remote.php
+fi
+
 saltv="$(tr -c -d '0123456789abcdefghijklmnopqrstuvwxyz' </dev/urandom | dd bs=32 count=1 2>/dev/null;echo)"
 echo "updating salt value to something random..."
 sed -i "s/defaultsecretsalt/$saltv/g" ${installdir}/config/config.php

@@ -92,6 +92,14 @@ sudo ./sync-as-root.sh
 
 ```
 
+If you would like to include a bunch of additional SP configurations for local testing
+then export this variable and rerun the scripts.
+
+```
+export SSPSMALL_EXTRA_SP=1
+```
+
+
 Once you have run the four scripts you should be able to visit
 https://localhost/sspsmall/admin
 to login using the admin password from common.sh.
